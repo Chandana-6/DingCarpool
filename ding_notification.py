@@ -9,3 +9,11 @@ def send_notification(user_id, message, notification_type="email"):
     else:
         print("Unknown notification type")
 
+def check_upcoming_reservations():
+    while True:
+        # Logic to check reservations and notify users about upcoming events
+        # Example: Check reservations happening in the next 24 hours
+        reservations = get_upcoming_reservations()
+        for reservation in reservations:
+            send_notification(reservation['user_id'], "Reminder: You have a reservation tomorrow.")
+        time.sleep(60 * 60)  # Check every hour
